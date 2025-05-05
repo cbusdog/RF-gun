@@ -1,0 +1,7 @@
+
+{
+  "apiKey": "YOUR_SHARED_DATADOG_API_KEY",
+  "deviceId": "rf-1234",
+  "warehouseLocation": "houston-04",
+  "intervalSeconds": 30
+}
