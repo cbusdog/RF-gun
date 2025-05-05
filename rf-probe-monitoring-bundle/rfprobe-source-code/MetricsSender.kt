@@ -1,4 +1,3 @@
-
 package com.datadog.rfprobe
 
 import okhttp3.*
