@@ -1,4 +1,3 @@
-
 package com.datadog.rfprobe
 
 import android.app.Service
@@ -14,7 +13,10 @@ class MainService : Service() {
         timer = Timer()
         timer.scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
-                val metrics = collectAllMetrics(applicationContext, config)
+                val wifiMetrics = collectWifiInfo(applicationContext, config)
+                val batteryMetrics = collectBatteryInfo(applicationContext, config)
+                val cpuMemMetrics = collectCpuAndMemory(applicationContext, config)
+                val metrics = wifiMetrics + batteryMetrics + cpuMemMetrics
                 MetricsSender.send(metrics, config.apiKey)
             }
         }, 0, config.intervalSeconds * 1000L)
